@@ -1,21 +1,10 @@
 import Card from "../components/Card";
 import "./Products.css";
 
-function Products() {
+function Products({ products }) {
   return (
     <section className="card-container">
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      {products.map((product) => product)}
     </section>
   );
 }
