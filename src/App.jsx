@@ -2,15 +2,15 @@ import Navigation from "./Navigation/Nav";
 import Products from "./Products/Products";
 import Recommended from "./Recommended/Recommended";
 import Category from "./sidebar/Category/Category";
+import Sidebar from "./sidebar/Sidebar";
 
 function App() {
   return (
     <>
-      <h1 className="text-6xl">His</h1>
+      <Sidebar />
       <Navigation />
-      <Products />
       <Recommended />
-      <Category />
+      <Products />
     </>
   );
 }

@@ -1,0 +1,31 @@
+nav {
+  display: flex;
+  border-bottom: 2px solid white;
+  justify-content: space-around;
+  padding: 20px;
+  align-items: center;
+  z-index: 20;
+  margin-left: 2rem;
+}
+
+.search-input {
+  padding: 12px 20px;
+  border: none;
+  background: #f7f6f6;
+  outline: none;
+  margin-right: 20px;
+  border-radius: 5px;
+  position: relative;
+  width: 24rem;
+}
+
+.nav-icons {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: 2rem;
+  color: #0d1449;
+}
+
+.profile-container {
+  display: flex;
+}

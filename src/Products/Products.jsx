@@ -1,7 +1,23 @@
+import Card from "../components/Card";
 import "./Products.css";
 
 function Products() {
-  return <div>Products</div>;
+  return (
+    <section className="card-container">
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+    </section>
+  );
 }
 
 export default Products;

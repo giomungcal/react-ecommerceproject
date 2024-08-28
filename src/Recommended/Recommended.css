@@ -1,0 +1,17 @@
+.recommended-flex {
+  display: flex;
+  margin-left: 20rem;
+  @apply space-x-2;
+}
+
+.recommended-title {
+  margin-left: 20rem;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.btns {
+  @apply bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-300 rounded-lg shadow-sm transform transition-transform duration-200 ease-in-out;
+}
