@@ -214,7 +214,7 @@ const data = [
     newPrice: "50",
     company: "Nike",
     color: "black",
-    category: "sandals",
+    category: "sneakers",
   },
   {
     img: "https://m.media-amazon.com/images/I/61bncQ44yML._AC_UX695_.jpg",

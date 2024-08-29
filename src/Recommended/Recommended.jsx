@@ -9,7 +9,7 @@ function Recommended({ handleButtonClick }) {
         <div className="recommended-flex">
           <Button
             title={"All Products"}
-            value="all"
+            value="allCategory"
             handleButtonClick={handleButtonClick}
           />
           <Button

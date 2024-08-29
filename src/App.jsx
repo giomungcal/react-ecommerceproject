@@ -16,6 +16,7 @@ function App() {
   // 2.0 Filtering Improvement
   const [selectedPrice, setSelectedPrice] = useState("");
   const [selectedCat, setSelectedCat] = useState("");
+  const [selectedColor, setSelectedColor] = useState("");
 
   // Input Filter
   const handleInputChange = (event) => {
@@ -43,8 +44,7 @@ function App() {
       case "heels":
       case "sandals":
         setSelectedCat(selectedValue);
-        console.log(selectedValue);
-
+        console.log("category");
         break;
 
       case "allPrice":
@@ -56,6 +56,16 @@ function App() {
         console.log("number");
         break;
 
+      case "allColor":
+      case "red":
+      case "black":
+      case "green":
+      case "blue":
+      case "white":
+        setSelectedColor(selectedValue);
+        console.log("color");
+        break;
+
       default:
         break;
     }
@@ -63,14 +73,16 @@ function App() {
 
   // Buttons Filter
   const handleButtonClick = (event) => {
-    setSelectedCategory(event.target.value);
+    setSelectedCat(event.target.value);
   };
 
-  useEffect(() => {
-    // console.log(selectedCategory);
-  }, [selectedCategory]);
-
-  function filteredData(productsArray, filterCategory, filterPrice, query) {
+  function filteredData(
+    productsArray,
+    filterCategory,
+    filterPrice,
+    filterColor,
+    query
+  ) {
     let filteredProducts = productsArray.map((product) => ({
       ...product,
       keyId: Math.floor(Math.random() * 10000),
@@ -84,7 +96,6 @@ function App() {
 
     // 2.0 Filtering System - for Category
     if (filterCategory) {
-      console.log("2.0");
       if (filterCategory !== "allCategory") {
         filteredProducts = filteredProducts.filter(
           ({ category, title, company }) => {
@@ -103,6 +114,15 @@ function App() {
       if (filterPrice !== "allPrice") {
         filteredProducts = filteredProducts.filter(({ newPrice }) => {
           return newPrice === filterPrice;
+        });
+      }
+    }
+
+    // Selected Filter - for Color
+    if (filterColor) {
+      if (filterColor !== "allColor") {
+        filteredProducts = filteredProducts.filter(({ color }) => {
+          return color === filterColor;
         });
       }
     }
@@ -126,6 +146,7 @@ function App() {
     productsdb,
     selectedCat,
     selectedPrice,
+    selectedColor,
     query
   );
 

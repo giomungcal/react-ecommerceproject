@@ -6,37 +6,37 @@ function Colors({ handleRadioChange }) {
       <h2 className="sidebar-title color-title">Color</h2>
       <Input
         handleRadioChange={handleRadioChange}
-        value="All"
+        value="allColor"
         title="All"
         name="color"
       />
       <Input
         handleRadioChange={handleRadioChange}
-        value="Red"
+        value="red"
         title="Red"
         name="color"
       />
       <Input
         handleRadioChange={handleRadioChange}
-        value="Black"
+        value="black"
         title="Black"
         name="color"
       />
       <Input
         handleRadioChange={handleRadioChange}
-        value="Blue"
+        value="blue"
         title="Blue"
         name="color"
       />
       <Input
         handleRadioChange={handleRadioChange}
-        value="Green"
+        value="green"
         title="Green"
         name="color"
       />
       <Input
         handleRadioChange={handleRadioChange}
-        value="White"
+        value="white"
         title="White"
         name="color"
       />
