@@ -14,8 +14,8 @@ function App() {
   const [query, setQuery] = useState("");
 
   // 2.0 Filtering Improvement
-  const [selectedPrice, setSelectedPrice] = useState("all");
-  const [selectedCat, setSelectedCat] = useState("all");
+  const [selectedPrice, setSelectedPrice] = useState("");
+  const [selectedCat, setSelectedCat] = useState("");
 
   // Input Filter
   const handleInputChange = (event) => {
@@ -33,9 +33,32 @@ function App() {
     const selectedValue = event.target.value;
 
     // Single Filtering System
-    setSelectedCategory(selectedValue);
+    // setSelectedCategory(selectedValue);
 
     // 2.0 Filtering Improvement
+    switch (selectedValue) {
+      case "allCategory":
+      case "sneakers":
+      case "flats":
+      case "heels":
+      case "sandals":
+        setSelectedCat(selectedValue);
+        console.log(selectedValue);
+
+        break;
+
+      case "allPrice":
+      case "50":
+      case "100":
+      case "150":
+      case "200":
+        setSelectedPrice(selectedValue);
+        console.log("number");
+        break;
+
+      default:
+        break;
+    }
   };
 
   // Buttons Filter
@@ -47,7 +70,7 @@ function App() {
     // console.log(selectedCategory);
   }, [selectedCategory]);
 
-  function filteredData(productsArray, selected, query) {
+  function filteredData(productsArray, filterCategory, filterPrice, query) {
     let filteredProducts = productsArray.map((product) => ({
       ...product,
       keyId: Math.floor(Math.random() * 10000),
@@ -59,22 +82,28 @@ function App() {
       filteredProducts = filteredItems;
     }
 
-    // Selected Filter
-    if (selected) {
-      console.log(selected);
-
-      if (selected !== "all") {
+    // 2.0 Filtering System - for Category
+    if (filterCategory) {
+      console.log("2.0");
+      if (filterCategory !== "allCategory") {
         filteredProducts = filteredProducts.filter(
-          ({ category, newPrice, color, title, company }) => {
+          ({ category, title, company }) => {
             return (
-              category === selected ||
-              newPrice === selected ||
-              color === selected ||
-              title === selected ||
-              company === selected
+              category === filterCategory ||
+              title === filterCategory ||
+              company === filterCategory
             );
           }
         );
+      }
+    }
+
+    // Selected Filter - for Price
+    if (filterPrice) {
+      if (filterPrice !== "allPrice") {
+        filteredProducts = filteredProducts.filter(({ newPrice }) => {
+          return newPrice === filterPrice;
+        });
       }
     }
 
@@ -93,7 +122,12 @@ function App() {
     );
   }
 
-  const productsDisplayed = filteredData(productsdb, selectedCategory, query);
+  const productsDisplayed = filteredData(
+    productsdb,
+    selectedCat,
+    selectedPrice,
+    query
+  );
 
   return (
     <>

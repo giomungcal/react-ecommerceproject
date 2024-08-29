@@ -8,7 +8,7 @@ function Price({ handleRadioChange }) {
       <div>
         <Input
           handleRadioChange={handleRadioChange}
-          value="all"
+          value="allPrice"
           title="All"
           name="price"
         />

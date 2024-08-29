@@ -7,7 +7,7 @@ function Category({ handleRadioChange }) {
       <h2 className="sidebar-title">Category</h2>
       <Input
         handleRadioChange={handleRadioChange}
-        value="all"
+        value="allCategory"
         title="All"
         name="category"
       />
