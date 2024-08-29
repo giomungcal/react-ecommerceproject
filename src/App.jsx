@@ -10,8 +10,12 @@ import Card from "./components/Card";
 import productsdb from "./db/data";
 
 function App() {
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState("all");
   const [query, setQuery] = useState("");
+
+  // 2.0 Filtering Improvement
+  const [selectedPrice, setSelectedPrice] = useState("all");
+  const [selectedCat, setSelectedCat] = useState("all");
 
   // Input Filter
   const handleInputChange = (event) => {
@@ -26,14 +30,22 @@ function App() {
 
   // Radio Filter
   const handleRadioChange = (event) => {
-    setSelectedCategory(event.target.value);
-    console.log("Working");
+    const selectedValue = event.target.value;
+
+    // Single Filtering System
+    setSelectedCategory(selectedValue);
+
+    // 2.0 Filtering Improvement
   };
 
   // Buttons Filter
   const handleButtonClick = (event) => {
     setSelectedCategory(event.target.value);
   };
+
+  useEffect(() => {
+    // console.log(selectedCategory);
+  }, [selectedCategory]);
 
   function filteredData(productsArray, selected, query) {
     let filteredProducts = productsArray.map((product) => ({
@@ -49,15 +61,21 @@ function App() {
 
     // Selected Filter
     if (selected) {
-      filteredProducts = filteredProducts.filter(
-        ({ category, newPrice, color, title, company }) => {
-          category === selected ||
-            newPrice === selected ||
-            color === selected ||
-            title === selected ||
-            company === selected;
-        }
-      );
+      console.log(selected);
+
+      if (selected !== "all") {
+        filteredProducts = filteredProducts.filter(
+          ({ category, newPrice, color, title, company }) => {
+            return (
+              category === selected ||
+              newPrice === selected ||
+              color === selected ||
+              title === selected ||
+              company === selected
+            );
+          }
+        );
+      }
     }
 
     return filteredProducts.map(
@@ -80,8 +98,8 @@ function App() {
   return (
     <>
       <Sidebar handleRadioChange={handleRadioChange} />
-      <Navigation />
-      <Recommended />
+      <Navigation query={query} handleInputChange={handleInputChange} />
+      <Recommended handleButtonClick={handleButtonClick} />
       <Products products={productsDisplayed} />
     </>
   );

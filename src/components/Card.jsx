@@ -3,12 +3,12 @@ import { FaCartArrowDown } from "react-icons/fa";
 
 function Card({ img, title, prevPrice, newPrice, star, reviews, keyId }) {
   return (
-    <section className="card">
-      <img className="card-img" src={img} alt="Shoe" />
+    <section className="card" key={keyId}>
+      <img className="card-img" src={img} alt={title} />
       <div className="card-details">
         <h3 className="card-title">{title}</h3>
         <section className="card-reviews">
-          {StarRatings(star)}
+          {starRatings(star)}
           <span className="total-reviews">{reviews}</span>
         </section>
         <section className="card-price">
@@ -24,8 +24,8 @@ function Card({ img, title, prevPrice, newPrice, star, reviews, keyId }) {
     </section>
   );
 
-  // Display stars based on number of "star"
-  function StarRatings(num) {
+  // Display stars based on number provided by "star" props
+  function starRatings(num) {
     const starArray = [];
     for (let index = 0; index < num; index++) {
       starArray.push(<AiFillStar key={index} className="reviews-star" />);

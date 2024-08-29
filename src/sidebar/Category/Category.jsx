@@ -7,31 +7,31 @@ function Category({ handleRadioChange }) {
       <h2 className="sidebar-title">Category</h2>
       <Input
         handleRadioChange={handleRadioChange}
-        value="All"
+        value="all"
         title="All"
         name="category"
       />
       <Input
         handleRadioChange={handleRadioChange}
-        value="Sneakers"
+        value="sneakers"
         title="Sneakers"
         name="category"
       />
       <Input
         handleRadioChange={handleRadioChange}
-        value="Flats"
+        value="flats"
         title="Flats"
         name="category"
       />
       <Input
         handleRadioChange={handleRadioChange}
-        value="Heels"
+        value="heels"
         title="Heels"
         name="category"
       />
       <Input
         handleRadioChange={handleRadioChange}
-        value="Sandals"
+        value="sandals"
         title="Sandals"
         name="category"
       />
